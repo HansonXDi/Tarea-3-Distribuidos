@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "botiquin",
+    "cantidad": 35
+  },
+  {
+    "nombre": "sal",
+    "cantidad": 68
+  },
+  {
+    "nombre": "cigarrillo",
+    "cantidad": 62
+  },
+  {
+    "nombre": "cafe",
+    "cantidad": 21
+  },
+  {
+    "nombre": "vendaje",
+    "cantidad": 91
+  }
+]

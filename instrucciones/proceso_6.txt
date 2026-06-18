@@ -1,0 +1,15 @@
+VETAR cohen
+COMPRAR jack ADAM 15
+COMPRAR tenenbaum cafe 7
+PERDONAR cohen
+COMPRAR tenenbaum ADAM 6
+COMPRAR quinn ADAM 3
+COMPRAR fontaine manzana 1
+VETAR atlas
+VETAR sinclair
+COMPRAR steinman aceite 5
+COMPRAR ryan aceite 11
+COMPRAR quinn sal 12
+PERDONAR sinclair
+VETAR fontaine
+VETAR atlas

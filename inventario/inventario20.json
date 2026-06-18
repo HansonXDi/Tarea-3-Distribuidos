@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "aceite",
+    "cantidad": 91
+  },
+  {
+    "nombre": "cafe",
+    "cantidad": 32
+  },
+  {
+    "nombre": "naranja",
+    "cantidad": 68
+  },
+  {
+    "nombre": "agua",
+    "cantidad": 54
+  },
+  {
+    "nombre": "morfina",
+    "cantidad": 53
+  },
+  {
+    "nombre": "plasmido",
+    "cantidad": 142
+  },
+  {
+    "nombre": "cigarrillo",
+    "cantidad": 119
+  }
+]
