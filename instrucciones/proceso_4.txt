@@ -1,0 +1,16 @@
+VETAR suchong
+COMPRAR fontaine naranja 1
+PERDONAR suchong
+COMPRAR quinn ADAM 6
+COMPRAR jack morfina 9
+COMPRAR jack EVE 2
+VETAR sinclair
+VETAR cohen
+COMPRAR sinclair naranja 2
+PERDONAR sinclair
+PERDONAR cohen
+COMPRAR fontaine aceite 3
+VETAR suchong
+COMPRAR ryan agua 2
+COMPRAR quinn municion 11
+COMPRAR steinman morfina 4

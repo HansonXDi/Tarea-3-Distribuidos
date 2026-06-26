@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package expendedora;
+
+option go_package = "tarea3/internal/grpcapi";
+
+// Item representa un producto del inventario con su cantidad disponible.
+message Item {
+  string nombre = 1;
+  int32 cantidad = 2;
+}
+
+// VetoEntry representa un veto activo sobre una persona, con el counter de
+// instrucciones restantes antes de ser perdonada automáticamente.
+message VetoEntry {
+  string persona = 1;
+  int32 counter = 2;
+}
+
+// InventoryUpdate es el mensaje que un proceso envía cada vez que su propio
+// inventario o vetos cambian (al nacer, y tras cada instrucción que los
+// modifique), para que TODOS los demás procesos actualicen su copia.
+// seq es un número de secuencia monotónico (Unix nanosegundos del emisor)
+// que permite a los receptores descartar actualizaciones stale que lleguen
+// fuera de orden por la red.
+message InventoryUpdate {
+  int32 machine_id = 1;
+  int32 process_id = 2;
+  repeated Item inventory = 3;
+  repeated VetoEntry vetos = 4;
+  int64 seq = 5;
+}
+
+// Ack es una confirmación simple de recepción.
+message Ack {
+  bool ok = 1;
+}
+
+// InventoryQuery solicita a un proceso su copia actual del inventario y
+// vetos de un proceso específico (identificado por machine_id/process_id),
+// usado durante la recuperación de un proceso caído.
+message InventoryQuery {
+  int32 target_machine_id = 1;
+  int32 target_process_id = 2;
+}
+
+// InventoryQueryReply es la respuesta a InventoryQuery: la copia que este
+// proceso tiene almacenada del proceso consultado. Si la máquina que
+// responde está infectada, estos datos son falsos.
+message InventoryQueryReply {
+  bool found = 1;
+  repeated Item inventory = 2;
+  repeated VetoEntry vetos = 3;
+}
+
+// HealthRequest/HealthReply para chequeo de disponibilidad.
+message HealthRequest {}
+
+message HealthReply {
+  bool ok = 1;
+}
+
+// ExpendedoraService es el servicio gRPC que cada proceso expone para
+// comunicarse con todos los demás procesos del sistema.
+service ExpendedoraService {
+  // Health permite comprobar disponibilidad antes de intentar otras llamadas.
+  rpc Health(HealthRequest) returns (HealthReply);
+
+  // PushInventory es invocado por un proceso para informar a este proceso
+  // que su propio inventario o vetos (del emisor) cambiaron.
+  rpc PushInventory(InventoryUpdate) returns (Ack);
+
+  // QueryInventory es invocado durante la recuperación de un proceso caído.
+  rpc QueryInventory(InventoryQuery) returns (InventoryQueryReply);
+}

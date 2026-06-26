@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "agua",
+    "cantidad": 189
+  },
+  {
+    "nombre": "botiquin",
+    "cantidad": 189
+  },
+  {
+    "nombre": "aceite",
+    "cantidad": 72
+  },
+  {
+    "nombre": "bebida",
+    "cantidad": 133
+  },
+  {
+    "nombre": "cafe",
+    "cantidad": 200
+  },
+  {
+    "nombre": "manzana",
+    "cantidad": 50
+  }
+]

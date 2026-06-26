@@ -1,0 +1,16 @@
+COMPRAR ryan EVE 11
+VETAR tenenbaum
+COMPRAR ryan ADAM 2
+COMPRAR tenenbaum agua 1
+COMPRAR steinman morfina 5
+PERDONAR tenenbaum
+COMPRAR cohen cafe 7
+COMPRAR cohen manzana 4
+COMPRAR suchong municion 7
+COMPRAR quinn manzana 11
+VETAR steinman
+COMPRAR cohen cafe 9
+COMPRAR ryan cafe 11
+COMPRAR suchong ADAM 5
+VETAR suchong
+COMPRAR fontaine cafe 5

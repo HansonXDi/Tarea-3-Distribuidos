@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "azucar",
+    "cantidad": 59
+  },
+  {
+    "nombre": "morfina",
+    "cantidad": 143
+  },
+  {
+    "nombre": "bebida",
+    "cantidad": 198
+  },
+  {
+    "nombre": "municion",
+    "cantidad": 191
+  },
+  {
+    "nombre": "aceite",
+    "cantidad": 181
+  }
+]
