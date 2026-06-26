@@ -29,18 +29,6 @@ El servicio expuesto por cada proceso (`ExpendedoraService`, en `proto/expendedo
 | `PushInventory` | este proceso → todos | Notificar cambio de inventario o vetos propios |
 | `QueryInventory` | proceso en recuperación → todos | Pedir la copia almacenada de un proceso específico |
 
-### Esquema de puertos
-
-Cada proceso escucha en el puerto `8000 + (machineID - 1) * 100 + processID`.
-
-| Máquina | IP | Procesos (N=7) | Puertos |
-|---------|----|-----------------|---------|
-| 1 | 10.10.28.35 | P1–P7 | 8001–8007 |
-| 2 | 10.10.28.36 | P1–P7 | 8101–8107 |
-| 3 | 10.10.28.37 | P1–P7 | 8201–8207 |
-
----
-
 ## Decisiones de diseño y justificación
 
 ### 1. Modelo sin líder ni grupos de réplica
@@ -262,6 +250,5 @@ Todos los comentarios automáticos generados por IA fueron revisados y reescrito
 
 - Los archivos `expendedora.pb.go` y `expendedora_grpc.pb.go` son **generados**; no se deben editar manualmente ni commitear. Si se modifica `proto/expendedora.proto`, ejecutar `./generate_proto.sh` y recompilar.
 - La constante `totalProcesosPorMaquina` en `cmd/main.go` debe coincidir exactamente en las 3 VMs y con el argumento que se pasa a `./script.sh`.
-- Los puertos `8001`–`8X07` (según N procesos por máquina) deben estar abiertos entre las 3 VMs en el firewall.
 - El flag de infección (`.infectado`) vive en el directorio de trabajo; ejecutar siempre `script.sh` desde la raíz del repositorio.
 - Al restaurar un proceso, se espera hasta 3 segundos para recibir las respuestas de `QueryInventory` de todos los peers antes de evaluar el quorum, tal como especifica el enunciado.
